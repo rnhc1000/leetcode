@@ -1,10 +1,11 @@
-## LeetCode Challenge75 - @Ricardo Ferreira
+## LeetCode - @Ricardo Ferreira
 The only way to keep your game at a very high level
 is being challenged every day. Nice source of coding challenges at https://leetcode.com
 Let's dive into it!
 ## _Tools_
-- Java 17
+- Java 21
 - IntelliJ Community Edition
+- Gradle
 
 ## _Table of contents_
 - [LeetCode Challenge75 - @Ricardo Ferreira](#leetcode-challenge75---ricardo-ferreira)

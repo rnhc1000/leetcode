@@ -31,32 +31,50 @@ Let's dive into it!
 
  ## _What I practiced_
 ```java
-package br.dev.ferreiras.dsa.search;
+public static boolean validAnagram(String s1, String s2) throws InterruptedException {
+        logger.info("Starting Anagram.... - V2");
+        startTimer();
+        String regex = "\\s+";
+        s1 = s1.replaceAll(regex, "").toLowerCase();
+        s2 = s2.replaceAll(regex, "").toLowerCase();
+        int lenStringOne = s1.length(), lenStringTwo = s2.length();
+        logger.info(String.format("Length of each string provided as is: %d, %d", lenStringOne, lenStringTwo));
+        if (lenStringOne != lenStringTwo) {
+          logger.info("Its not feasible to have an anagram with the strings provided. Try again!");
+          timeTaken();
+          return false;
+        }
+        logger.info("Both strings are normalized..." + s1);
+        char[] stringOne = s1.toCharArray(),stringTwo = s2.toCharArray();
+        StringBuilder sbOne = new StringBuilder(), sbTwo = new StringBuilder();
+        Thread thread = new Thread( () -> {
+          Arrays.sort(stringOne);
+          Arrays.sort(stringTwo);
+          logger.info("Both strings are sorted...");
+          for (char c : stringOne) {
+            sbOne.append(c);
+          }
+          for (char c : stringTwo) {
+            sbTwo.append(c);
+          }
+        });
 
-  public int binarySearch(List<Integer> list, int target) {
-    int left = 0, right = 0, middle = 0;
-    right = list.size() - 1;
-    while (left <= right) {
-      middle = left + (right - left) / 2;
-      if (list.get(middle) == target) {
-        return middle;
-      }
-      if (list.get(middle) < target) {
-        left = middle + 1;
-      } else {
-        right = middle - 1;
-      }
-    }
-    return -1;
-  }
+        thread.start();
+        thread.join();
+
+        logger.info("Stopping watch...");
+        timeTaken();
+        stopWatchReset();
+        return sbOne.toString().contentEquals(sbTwo.toString());
+        }
 
 ``` 
 
 ## _Continued development_
-- Next step: Hackerrank challenges.
+- Next step: Threads, Concurrency, Parallelism. ExecutorService and CompletableFuture
 - 
 ### _Useful resources_
-- [https://docs.oracle.com/en/java/] Always trust and read the official documentation!
+- [https://docs.oracle.com/en/java/]  Always trust and read the official documentation!
 - [https://cp-algorithms.com/]  A must stop by to tackle DSA...
 ## _Author_
 - Website - [https://www.ferreiras.dev.br]  

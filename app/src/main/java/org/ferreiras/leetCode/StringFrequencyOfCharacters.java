@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 @Description ("Count occurrence of characters")
-public class StringFrequencyOfCharacters {
+public class  StringFrequencyOfCharacters {
   public static final Logger logger = Logger.getLogger(StringFrequencyOfCharacters.class.getName());
 
   public static void main(String[] args) {

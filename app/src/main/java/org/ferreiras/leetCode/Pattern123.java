@@ -23,7 +23,7 @@ import java.util.Deque;
  */
 public class Pattern123 {
   public static void main(String[] args) {
-    int[] numbers = {3, 5, 0, 3, 4};
+    int[] numbers = {3, 4, 5, 6, 4};
     boolean r = find132pattern(numbers);
     System.out.println(r);
   }

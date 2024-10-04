@@ -41,7 +41,8 @@ Constraints:
  */
 public class ArraySumDivisibleByP {
 
-  public static final Logger logger = Logger.getLogger(String.valueOf(ArraySumDivisibleByP.class));
+//  public static final Logger logger = LoggerFactory.getLogger(String.valueOf(ArraySumDivisibleByP.class));
+public static final Logger logger = Logger.getLogger(String.valueOf(ArraySumDivisibleByP.class));
 
   public static void main(String[] args) {
     int[] nums = {1000000000, 1000000000, 1000000000};

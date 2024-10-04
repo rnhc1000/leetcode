@@ -6,7 +6,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import static java.lang.Thread.sleep;
 
 public class ConcurrencyUtils {
-  public static StopWatch stopWatch = new StopWatch();
+  public static final StopWatch stopWatch = new StopWatch();
 
   public static void log(String message){
 

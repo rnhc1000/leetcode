@@ -45,14 +45,13 @@ public class ArrayPlayersTeamsEqualSkills {
     int[] skills = {3, 2, 5, 1, 3, 4};
     long response = dividePlayers(skills);
     System.out.println(response);
-
   }
 
   public static long dividePlayers(int[] skill) {
 
     Arrays.sort(skill);
     int size = skill.length;
-    long maximumSum = 0L, totalSkills = 0L;
+    long maximumSum, totalSkills = 0L;
     maximumSum = (long) skill[0] + (long) skill[size - 1];
 
     for (int i = 0; i < size / 2; i++) {

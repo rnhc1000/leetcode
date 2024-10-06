@@ -88,12 +88,20 @@ public class StringPermutationOne {
       frequencyOne[s1.charAt(i) - 'a']++;
       frequencyTwo[s2.charAt(i) - 'a']++;
     }
+    System.out.println(Arrays.toString(frequencyOne));
+    System.out.println(Arrays.toString(frequencyTwo));
 
     for (int i = sizeOne; i  < sizeTwo; i++) {
-      if (Arrays.equals(frequencyOne, frequencyTwo)) return true;
+      if (Arrays.equals(frequencyOne, frequencyTwo)) {
+        System.out.println("Equals");
+//        return true;
+        continue;
+      }
       frequencyTwo[s2.charAt(i) - 'a']++;
       frequencyTwo[s2.charAt(i-sizeOne) - 'a']--;
     }
+
+    System.out.println(Arrays.toString(frequencyTwo));
 
 //    for (int i = 0; i < sizeOne; i++) {
 //      frequencyOne[s1.charAt(i) - 'a']++;

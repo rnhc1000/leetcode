@@ -36,6 +36,7 @@ public class ValidParentheses {
     int response = minAddToMakeValid(s);
     System.out.println(response);
   }
+
   public static int minAddToMakeValid(String s) {
 
     Deque<Character> stack = new ArrayDeque<>();
@@ -57,24 +58,17 @@ public class ValidParentheses {
 
     return stack.size();
   }
-  public static int minAddToMakeValid(String s, int len) {
 
-
-    int size = len;
-    int counter = 0;
-    char[] ch = s.toCharArray();
-
-    for (char c : ch) {
-
-      if (c == '(') counter++;
-      else counter--;
+  public static int minAddToMakeValid(String s, boolean flag) {
+    if (flag) {
+      int counter = 0;
+      for (char ch : s.toCharArray()) {
+        if (ch == '(') counter++;
+        else counter--;
+      }
+      if (counter < 0) return Math.abs(counter);
+      else return counter;
     }
-
-    if (counter < 0) return Math.abs(counter);
-     else return counter;
-
-
-    }
-
-
+    return 0;
+  }
 }

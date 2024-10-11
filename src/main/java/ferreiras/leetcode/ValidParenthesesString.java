@@ -40,7 +40,7 @@ public class ValidParenthesesString {
     boolean f = checkValidString(s);
     System.out.println(f);
   }
-  public static boolean checkValidParentehses(String s) {
+  public static boolean checkValidParentheses(String s) {
 
     Deque<Character> stack = new ArrayDeque<>();
     boolean flag = false;

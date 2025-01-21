@@ -47,7 +47,7 @@ public class GreatestCommonDivisorTraversal {
 
   public static List<Integer> getFactors(int N) {
 
-    List<Integer> factors = new ArrayList<Integer>();
+    List<Integer> factors = new ArrayList<>();
 
     for (int i = 2, end = ((int) Math.sqrt(N)); (i <= end); i++) {
 

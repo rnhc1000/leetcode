@@ -1,5 +1,8 @@
 package ferreiras.leetcode;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -30,11 +33,14 @@ Constraints:
 s[i] is either '(' or ')'.
  */
 public class ValidParentheses {
+  private static final Logger logger = LoggerFactory.getLogger(ValidParentheses.class);
+
   public static void main(String[] args) {
     String s = "()))((";
-    int len = s.length();
+
     int response = minAddToMakeValid(s);
-    System.out.println(response);
+
+    logger.info("Valid -> {}",response);
   }
 
   public static int minAddToMakeValid(String s) {

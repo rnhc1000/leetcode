@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
-  <appenders>
-    <ConsoleAppender name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-    </ConsoleAppender>
-  </appenders>
-  <loggers>
-    <root level="INFO"/>
-  </loggers>
+<Configuration>
+  <Properties>
+    <Property name="APP_LOG_PATTERN">%style{%d{dd-MM-yyyy HH:mm:ss.SSS}}{magenta} %highlight{%-5level }{blue}
+      [%style{%t}{bright,red}] %style{%C{1.}}{bright,blue}: %style{%msg%n%throwable}{bright,yellow}
+    </Property>
+    <!--        %clr(%d{yy-MM-dd E HH:mm:ss.SSS}){green} %clr(%-5p){blue} %clr([%thread]){red} %clr(%logger{15}){blue} %clr(%m){yellow}%n}-->
+    <Property name="APP_LOG_ROOT">/home/rferreira/dev/leetcode</Property>
+  </Properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${APP_LOG_PATTERN}"/>
+    </Console>
+
+    <RollingFile name="RollingFile"
+                 fileName="${APP_LOG_ROOT}/logs/leetcode-logger-log4j2.log"
+                 filePattern="${APP_LOG_ROOT}/logs/$${date:yyyy-MM}/leetcode-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+      </PatternLayout>
+      <Policies>
+        <!-- rollover on startup, daily and when the file reaches
+            10 MegaBytes -->
+        <OnStartupTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy
+            size="10 MB"/>
+        <TimeBasedTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="RollingFile"/>
+    </Root>
+
+    <Logger name="br.dev.ferreiras" additivity="false">
+      <AppenderRef ref="RollingFile"/>
+      <AppenderRef ref="Console"/>
+    </Logger>
+  </Loggers>
+
 </Configuration>

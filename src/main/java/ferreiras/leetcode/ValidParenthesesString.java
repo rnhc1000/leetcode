@@ -1,7 +1,11 @@
 package ferreiras.leetcode;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
+
 
 /*
 Given a string s containing only three types of characters: '(', ')' and '*',
@@ -35,10 +39,12 @@ Constraints:
 s[i] is '(', ')' or '*'
  */
 public class ValidParenthesesString {
+
+  private static final Logger logger = LoggerFactory.getLogger(ValidParenthesesString.class);
   public static void main(String[] args) {
     String s = "((*))";
     boolean f = checkValidString(s);
-    System.out.println(f);
+    logger.info("ValidString -> {}", f);
   }
   public static boolean checkValidParentheses(String s) {
 

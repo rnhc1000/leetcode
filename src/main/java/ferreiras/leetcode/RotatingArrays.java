@@ -14,6 +14,7 @@ public class RotatingArrays {
     System.out.println(Arrays.toString(responseOne));
     System.out.println(Arrays.toString(responseTwo));
 
+    rotate(numbers,k);
   }
 
   public static String[] rotatingArrays(String[] strings, int k) {
@@ -54,5 +55,24 @@ public class RotatingArrays {
     long diff = end - start;
     System.out.println("\n" + diff + " ms");
     return temp.stream().mapToInt(x -> x).toArray();
+  }
+
+  public static void rotate(int[] nums, int k) {
+
+    int size = nums.length;
+    k = k % size;
+    reverse(nums, 0, size - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, size - 1);
+  }
+
+  private static void reverse(int[] numbers, int start, int end) {
+    while (start < end) {
+      numbers[start] = numbers[start] ^ numbers[end];
+      numbers[end] = numbers[end] ^ numbers[start];
+      numbers[start] = numbers[start] ^ numbers[end];
+      start++;
+      end--;
+    }
   }
 }
